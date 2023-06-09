@@ -248,6 +248,7 @@ class humanBody():
             self.max_daily_calories = 10*self.weight + 6.25*self.height - 5*self.age - 161
         else: 
             print('Ви ввели неправильну стать. спробуйте ще раз')
+        print(f'Ваш максимум калорій на день: {self.max_daily_calories}')
             
     def initialise_human(self):
         print('Давайте ініціалізуємо людину')
@@ -258,7 +259,7 @@ class humanBody():
         self.calc_max_calories()
         self.cardivascular.beating = True
         self.respirotory.breathing = True
-        print(f'Вітаю. ваша стать: {self.sex}, ваш зріст{self.height} см, ваша вага {self.weight} кг і ваш вік {self.age} років ')
+        print(f'Вітаю. ваша стать: {self.sex}, ваш зріст {self.height} см, ваша вага {self.weight} кг і ваш вік {self.age} років ')
         
     def choose_hobby(self):
         hobby_dict = {
@@ -320,4 +321,32 @@ class humanBody():
             print("Enjoy your hobby!")
         else:
             print("Invalid choice. Please try again.")
+            
+    def have_sex(self):
+        i = randint(0,1)
+        if i == 1:
+            self.reproductive.have_sex = True
+            self.endocrine.dophamine_level += 7
+            if self.sex.lower == 'жінка':
+                self.endocrine.estrogen_level += 5
+            elif self.sex.lower == 'чоловік':
+                self.endocrine.teststerone_level
+        elif i == 0:
+            print('Хм. схоже не сьогодні... gg wp')
+            
+    def wake_up(self):
+        pass
+    
+    def go_sleep(self):
+        pass
+    
+    def suicide(self):
+        self.cardivascular.pulse = 0
+        self.cardivascular.beating = False
+        self.respirotory.breathing = False
+        death_quotes = ['Померти не страшно – раз і помер … Жити набагато страшніше.', 'У житті все фальшиво, є тільки одна істина, ця істина – смерть.', 'Кажуть, що день смерті такий же як усі, тільки коротше.', 'Смерть для того поставлена ​​в кінці життя, щоб зручніше до неї готуватися.', 'Смерть прекрасна. Лише вмираючий, відчуває на своїх губах її поцілунок розуміє це. Смертю треба захоплюватися. Смерть це заслуговує. Як ти заслуговуєш щастя і спокій після Смерті.']
+        i = death_quotes[randint(0, 4)]
+        print(i)
+        exit()
+        
         
